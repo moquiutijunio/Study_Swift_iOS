@@ -16,6 +16,7 @@
 		0CA6CF1D1C5A778300ECBC11 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6CF1C1C5A778300ECBC11 /* Item.swift */; };
 		0CA6CF1F1C5A77BB00ECBC11 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6CF1E1C5A77BB00ECBC11 /* Meal.swift */; };
 		0CA6CF211C5A786800ECBC11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6CF201C5A786800ECBC11 /* ViewController.swift */; };
+		0CA6CF241C5AA84800ECBC11 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6CF231C5AA84800ECBC11 /* MealsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0CA6CF1C1C5A778300ECBC11 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0CA6CF1E1C5A77BB00ECBC11 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		0CA6CF201C5A786800ECBC11 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0CA6CF231C5AA84800ECBC11 /* MealsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				0CA6CF201C5A786800ECBC11 /* ViewController.swift */,
+				0CA6CF231C5AA84800ECBC11 /* MealsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CA6CF241C5AA84800ECBC11 /* MealsTableViewController.swift in Sources */,
 				0CA6CF1F1C5A77BB00ECBC11 /* Meal.swift in Sources */,
 				0CA6CF1D1C5A778300ECBC11 /* Item.swift in Sources */,
 				0CA6CF211C5A786800ECBC11 /* ViewController.swift in Sources */,
