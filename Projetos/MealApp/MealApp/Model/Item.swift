@@ -8,11 +8,14 @@
 
 import Foundation
 
-class Item {
+class Item : Equatable{
     var name: String
     var calories: Double
     init(name: String, calories: Double){
         self.name = name
         self.calories = calories
     }
+}
+func ==(first: Item, secund: Item) -> Bool{
+    return first.name == secund.name && first.calories == secund.calories
 }

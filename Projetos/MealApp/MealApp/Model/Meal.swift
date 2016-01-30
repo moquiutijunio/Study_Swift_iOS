@@ -18,12 +18,12 @@ class Meal {
         self.happiness = happiness
     }
     
-    //func allCalories() -> Double{
-    //    var total = 0.0
-    //    for item in itens{
-    //        total += item.calories
-    //    }
-    //    return total
-    //}
+    func allCalories() -> Double{
+        var total = 0.0
+        for item in itens{
+            total += item.calories
+        }
+        return total
+    }
     
 }
