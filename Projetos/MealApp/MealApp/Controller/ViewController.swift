@@ -12,12 +12,13 @@ protocol addAMealDelegate{
     func add(meal: Meal)
 }
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, addNewItemDelegate {
 
 
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var happinessTextField: UITextField!
     var delegate: addAMealDelegate?
+    @IBOutlet var tableView: UITableView!
     
     var itens = [
             Item(name: "Eggplant brownie", calories: 55),
@@ -28,6 +29,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             Item(name: "Chocolate chip", calories: 390)
                 ]
     var selected = Array<Item>()
+    
+    override func viewDidLoad() {
+        let newItemButton = UIBarButtonItem(title: "New Item",
+            style: UIBarButtonItemStyle.Plain,
+            target: self,
+            action: Selector("showNewItem"))
+        navigationItem.rightBarButtonItem = newItemButton
+    }
+    
+    func addItem(item: Item){
+        itens.append(item)
+        if tableView == nil{
+            return
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func showNewItem(){
+        let newItem = NewItemViewController(delegate: self)
+        if let navigation = navigationController{
+            navigation.pushViewController(newItem, animated: true)
+        }
+    }
+    
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itens.count
@@ -57,9 +84,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if let position = selected.indexOf(item){
                 selected.removeAtIndex(position)
             }
-            
-        
-                
         }
         
     }
@@ -90,5 +114,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     
     }
+    
 }
 

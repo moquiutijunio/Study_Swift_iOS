@@ -17,6 +17,8 @@
 		0CA6CF1F1C5A77BB00ECBC11 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6CF1E1C5A77BB00ECBC11 /* Meal.swift */; };
 		0CA6CF211C5A786800ECBC11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6CF201C5A786800ECBC11 /* ViewController.swift */; };
 		0CA6CF241C5AA84800ECBC11 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6CF231C5AA84800ECBC11 /* MealsTableViewController.swift */; };
+		0CC4B6641C5CF9810013F102 /* NewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC4B6621C5CF9810013F102 /* NewItemViewController.xib */; };
+		0CC4B6661C5CF9C20013F102 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4B6651C5CF9C20013F102 /* NewItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		0CA6CF1E1C5A77BB00ECBC11 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		0CA6CF201C5A786800ECBC11 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0CA6CF231C5AA84800ECBC11 /* MealsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
+		0CC4B6621C5CF9810013F102 /* NewItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewItemViewController.xib; sourceTree = "<group>"; };
+		0CC4B6651C5CF9C20013F102 /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 		0CA6CF171C5A76DD00ECBC11 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0CC4B6651C5CF9C20013F102 /* NewItemViewController.swift */,
 				0CA6CF201C5A786800ECBC11 /* ViewController.swift */,
 				0CA6CF231C5AA84800ECBC11 /* MealsTableViewController.swift */,
 			);
@@ -153,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				0CA6CEE81C5A755400ECBC11 /* Main.storyboard */,
+				0CC4B6621C5CF9810013F102 /* NewItemViewController.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			files = (
 				0CA6CEEF1C5A755400ECBC11 /* LaunchScreen.storyboard in Resources */,
 				0CA6CEEC1C5A755400ECBC11 /* Assets.xcassets in Resources */,
+				0CC4B6641C5CF9810013F102 /* NewItemViewController.xib in Resources */,
 				0CA6CEEA1C5A755400ECBC11 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +309,7 @@
 			files = (
 				0CA6CF241C5AA84800ECBC11 /* MealsTableViewController.swift in Sources */,
 				0CA6CF1F1C5A77BB00ECBC11 /* Meal.swift in Sources */,
+				0CC4B6661C5CF9C20013F102 /* NewItemViewController.swift in Sources */,
 				0CA6CF1D1C5A778300ECBC11 /* Item.swift in Sources */,
 				0CA6CF211C5A786800ECBC11 /* ViewController.swift in Sources */,
 				0CA6CEE51C5A755400ECBC11 /* AppDelegate.swift in Sources */,
@@ -530,6 +538,7 @@
 				0CA6CF0B1C5A755400ECBC11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CA6CF0C1C5A755400ECBC11 /* Build configuration list for PBXNativeTarget "MealAppTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +547,7 @@
 				0CA6CF0E1C5A755400ECBC11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0CA6CF0F1C5A755400ECBC11 /* Build configuration list for PBXNativeTarget "MealAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +556,7 @@
 				0CA6CF111C5A755400ECBC11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
