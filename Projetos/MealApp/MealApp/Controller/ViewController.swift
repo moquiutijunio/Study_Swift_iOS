@@ -20,14 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var delegate: addAMealDelegate?
     @IBOutlet var tableView: UITableView!
     
-    var itens = [
-            Item(name: "Eggplant brownie", calories: 55),
-            Item(name: "Zucchini muffin", calories: 145),
-            Item(name: "Cookie", calories: 400),
-            Item(name: "Coconut oil", calories: 2000),
-            Item(name: "Chocolate frosting", calories: 428),
-            Item(name: "Chocolate chip", calories: 390)
-                ]
+    var itens = Array<Item>()
     var selected = Array<Item>()
     
     override func viewDidLoad() {
@@ -36,21 +29,31 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             target: self,
             action: Selector("showNewItem"))
         navigationItem.rightBarButtonItem = newItemButton
+        
+        itens = Dao().loaditens()
     }
+    
     
     func addItem(item: Item){
         itens.append(item)
-        if tableView == nil{
-            return
-        }
         
-        tableView.reloadData()
+        Dao().saveItens(itens)
+        
+        if let table = tableView {
+            table.reloadData()
+        } else {
+            Alert(controller: self).show("Unexpected error, but the item was added.")
+        }
+            
+        
     }
     
     func showNewItem(){
         let newItem = NewItemViewController(delegate: self)
         if let navigation = navigationController{
             navigation.pushViewController(newItem, animated: true)
+        }else {
+            Alert(controller: self).show()
         }
     }
     
@@ -69,50 +72,64 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        if cell == nil{
-            return
-        }
         
-        let item = itens[indexPath.row]
-        
-        if cell?.accessoryType == UITableViewCellAccessoryType.None{
-            cell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-            selected.append(item)
-        }else{
-            cell?.accessoryType = UITableViewCellAccessoryType.None
-            if let position = selected.indexOf(item){
-                selected.removeAtIndex(position)
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            
+            let item = itens[indexPath.row]
+            
+            if cell.accessoryType == UITableViewCellAccessoryType.None{
+                cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+                selected.append(item)
+            }else{
+                cell.accessoryType = UITableViewCellAccessoryType.None
+                if let position = selected.indexOf(item){
+                    selected.removeAtIndex(position)
+                } else {
+                    Alert(controller: self).show()
+                }
             }
+            
+        } else {
+            Alert(controller: self).show()
         }
         
     }
 
-    
-    @IBAction func addAction(sender: AnyObject) {
-        
+    func getMealFromForm() -> Meal? {
         if nameTextField == nil || happinessTextField == nil{
-            return
+            return nil
         }
         
         let name = nameTextField!.text
         let happiness = Int(happinessTextField.text!)
+        
+        if happiness == nil {
+            return nil
+        }
         
         let meal = Meal(name: name!, happiness: happiness!)
         meal.itens = selected
         
         print("eaten: \(meal.name) \(meal.happiness) \(meal.itens)")
         
-        if delegate == nil{
+        return meal
+    }
+    
+    @IBAction func addAction(sender: AnyObject) {
+        
+        if let meal = getMealFromForm() {
+            if let meals = delegate {
+                meals.add(meal)
+                
+                if let navigation = navigationController{
+                    navigation.popViewControllerAnimated(true)
+                } else {
+                    Alert(controller: self).show()
+                }
+            }
             return
         }
-        
-        delegate!.add(meal)
-        
-        if let navigation = navigationController{
-            navigation.popViewControllerAnimated(true)
-        }
-    
+         Alert(controller: self).show()
     }
     
 }
